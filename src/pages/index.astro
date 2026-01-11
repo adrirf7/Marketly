@@ -1,0 +1,8 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AppWithAuth from "../components/react/AppWithAuth";
+---
+
+<Layout title="Marketly - Tu tienda online con autenticación">
+  <AppWithAuth client:only="react" />
+</Layout>

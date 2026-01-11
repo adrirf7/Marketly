@@ -1,0 +1,8 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProfilePage from "../components/react/ProfilePage.jsx";
+---
+
+<Layout title="Mi Perfil">
+  <ProfilePage client:only="react" />
+</Layout>

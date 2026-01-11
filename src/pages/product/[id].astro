@@ -1,0 +1,8 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ProductDetailPage from "../../components/react/ProductDetailPage.jsx";
+---
+
+<Layout title="Detalles del Producto">
+  <ProductDetailPage client:only="react" />
+</Layout>
