@@ -90,13 +90,13 @@ export function Cart({ isOpen, setIsOpen }) {
 
       {/* Panel del carrito */}
       <aside
-        className={`fixed top-0 right-0 w-full sm:max-w-md h-screen max-h-screen bg-white shadow-2xl transform transition-transform duration-300 z-50 flex flex-col ${
+        className={`fixed top-0 right-0 w-screen sm:w-full sm:max-w-md h-screen max-h-screen bg-white shadow-2xl transform transition-transform duration-300 z-50 flex flex-col ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         {/* Header del carrito */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-gray-50">
-          <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+        <div className="flex items-center justify-between px-3 sm:px-6 py-3 sm:py-4 border-b border-gray-200 bg-gray-50">
+          <h2 className="text-lg sm:text-xl font-bold text-gray-900 flex items-center gap-2">
             <CartIcon />
             Carrito
             {itemCount > 0 && (
@@ -115,7 +115,7 @@ export function Cart({ isOpen, setIsOpen }) {
         </div>
 
         {/* Contenido del carrito */}
-        <div className="flex-1 overflow-y-auto px-6">
+        <div className="flex-1 overflow-y-auto px-3 sm:px-6">
           {cart.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-20 text-center">
               <CartIcon />
@@ -141,7 +141,7 @@ export function Cart({ isOpen, setIsOpen }) {
 
         {/* Footer del carrito */}
         {cart.length > 0 && (
-          <div className="border-t border-gray-200 px-6 py-4 bg-gray-50">
+          <div className="border-t border-gray-200 px-3 sm:px-6 py-3 sm:py-4 bg-gray-50">
             <div className="flex justify-between items-center mb-4">
               <span className="text-lg font-semibold text-gray-900">Total:</span>
               <span className="text-2xl font-bold text-indigo-600">

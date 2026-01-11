@@ -125,13 +125,13 @@ export function FilterDropdown() {
           {/* Panel de filtros */}
           <div className={`${
             isMobile 
-              ? 'fixed left-0 right-0 bottom-0 max-h-[90vh] rounded-t-2xl z-[50]' 
+              ? 'fixed inset-x-0 bottom-0 max-h-[90vh] rounded-t-2xl z-[50] w-screen' 
               : 'absolute top-full left-0 mt-2 w-80 z-50'
           } bg-white shadow-xl border border-gray-200 overflow-hidden`}>
             
             {/* Header móvil */}
             {isMobile && (
-              <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200">
+              <div className="flex items-center justify-between px-3 sm:px-4 py-3 border-b border-gray-200">
                 <h3 className="font-semibold text-gray-900 text-sm">Filtros y Ordenación</h3>
                 <button
                   onClick={() => setIsOpen(false)}
@@ -144,7 +144,7 @@ export function FilterDropdown() {
               </div>
             )}
 
-            <div className={`${isMobile ? 'max-h-[calc(90vh-130px)] overflow-y-auto' : ''} p-4 space-y-4`}>
+            <div className={`${isMobile ? 'max-h-[calc(90vh-130px)] overflow-y-auto' : ''} p-3 sm:p-4 space-y-4`}>
               {/* Ordenar */}
               <div>
                 <label htmlFor={sortById} className="block text-sm font-medium text-gray-700 mb-2">
@@ -216,7 +216,7 @@ export function FilterDropdown() {
 
             {/* Footer móvil con botón aplicar */}
             {isMobile && (
-              <div className="p-4 border-t border-gray-200">
+              <div className="p-3 sm:p-4 border-t border-gray-200">
                 <button
                   onClick={() => setIsOpen(false)}
                   className="w-full px-4 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors"
