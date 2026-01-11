@@ -108,18 +108,17 @@ export function Header({ onCartClick, children }) {
             {/* Botón toggle de envío rápido */}
             <button
               onClick={handleToggleFastShipping}
-              className={`flex items-center gap-0 xs:gap-0.5 md:gap-2 px-1 xs:px-1.5 sm:px-3 md:px-4 py-0.5 xs:py-1 sm:py-2 text-[9px] xs:text-[10px] sm:text-xs md:text-sm font-medium rounded-md transition-all whitespace-nowrap ${
+              className={`flex items-center gap-0.5 xs:gap-1 md:gap-2 px-1 xs:px-1.5 sm:px-3 md:px-4 py-0.5 xs:py-1 sm:py-2 text-[9px] xs:text-[10px] sm:text-xs md:text-sm font-medium rounded-md transition-all whitespace-nowrap ${
                 filters.fastShipping
                   ? 'bg-green-600 text-white hover:bg-green-700'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
-              <svg className="w-0 xs:w-3 sm:w-4 md:w-5 h-0 xs:h-3 sm:h-4 md:h-5" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
                 <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1v-5a1 1 0 00-.293-.707l-2-2A1 1 0 0015 7h-1z"/>
               </svg>
               <span className="hidden sm:inline">Envío rápido</span>
-              <span className="sm:hidden">Rápido</span>
             </button>
           </div>
         </div>
