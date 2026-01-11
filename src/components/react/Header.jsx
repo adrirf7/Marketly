@@ -35,7 +35,7 @@ export function Header({ onCartClick, children }) {
     <header className="bg-white shadow-md sticky top-0 z-30">
       {/* Nivel 1: Logo, Búsqueda, Usuario, Carrito */}
       <div className="border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 py-3">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 py-3">
           <div className="flex items-center gap-2 md:gap-4">
             <a href="/" className="flex-shrink-0">
               <MarketlyLogo />
@@ -100,7 +100,7 @@ export function Header({ onCartClick, children }) {
       
       {/* Nivel 2: Categorías, Filtros, Envío rápido */}
       <div className="border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 py-2 md:py-3">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 py-2 md:py-3">
           <div className="flex items-center gap-2 md:gap-4">
             <CategoryDropdown />
             <FilterDropdown />
