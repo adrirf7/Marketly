@@ -90,7 +90,7 @@ export function Cart({ isOpen, setIsOpen }) {
 
       {/* Panel del carrito */}
       <aside
-        className={`fixed top-0 right-0 w-full max-w-md h-full bg-white shadow-2xl transform transition-transform duration-300 z-50 flex flex-col ${
+        className={`fixed top-0 right-0 w-full sm:max-w-md h-screen max-h-screen bg-white shadow-2xl transform transition-transform duration-300 z-50 flex flex-col ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -117,7 +117,7 @@ export function Cart({ isOpen, setIsOpen }) {
         {/* Contenido del carrito */}
         <div className="flex-1 overflow-y-auto px-6">
           {cart.length === 0 ? (
-            <div className="flex flex-col items-center justify-center h-full text-center">
+            <div className="flex flex-col items-center justify-center py-20 text-center">
               <CartIcon />
               <p className="mt-4 text-gray-500 text-lg">Tu carrito está vacío</p>
               <p className="mt-2 text-sm text-gray-400">
