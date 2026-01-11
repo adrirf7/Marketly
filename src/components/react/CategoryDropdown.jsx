@@ -125,13 +125,13 @@ export function CategoryDropdown() {
     >
       <button
         onClick={handleToggleDropdown}
-        className="flex items-center gap-1 md:gap-2 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 text-xs sm:text-xs md:text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md transition-colors whitespace-nowrap"
+        className="flex items-center gap-0.5 md:gap-2 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 text-xs sm:text-xs md:text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md transition-colors whitespace-nowrap"
       >
         <svg className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
         </svg>
         <span className="hidden sm:inline">{currentCategory}</span>
-        <span className="sm:hidden">Categorías</span>
+        <span className="sm:hidden">Cat.</span>
         <svg className={`w-3 h-3 sm:w-3 sm:h-3 md:w-4 md:h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>

@@ -35,9 +35,9 @@ export function Header({ onCartClick, children }) {
     <header className="bg-white shadow-md sticky top-0 z-30">
       {/* Nivel 1: Logo, Búsqueda, Usuario, Carrito */}
       <div className="border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-2 sm:px-4 py-2 sm:py-3">
-          <div className="flex items-center gap-2 sm:gap-2 md:gap-4">
-            <a href="/" className="flex-shrink-0 scale-90 sm:scale-100 origin-left">
+        <div className="max-w-7xl mx-auto px-1 sm:px-4 py-1.5 sm:py-3">
+          <div className="flex items-center gap-1 sm:gap-2 md:gap-4">
+            <a href="/" className="flex-shrink-0 scale-75 sm:scale-100 origin-left">
               <MarketlyLogo />
             </a>
             
@@ -53,7 +53,7 @@ export function Header({ onCartClick, children }) {
               />
             </div>
             
-            <div className="flex items-center gap-2 sm:gap-2 md:gap-3 ml-auto flex-shrink-0">
+            <div className="flex items-center gap-1 sm:gap-2 md:gap-3 ml-auto flex-shrink-0">
               {/* Botón de búsqueda móvil */}
               <button
                 className="md:hidden p-2 sm:p-2.5 hover:bg-gray-100 rounded-full transition-colors flex-shrink-0"
@@ -100,15 +100,15 @@ export function Header({ onCartClick, children }) {
       
       {/* Nivel 2: Categorías, Filtros, Envío rápido */}
       <div className="border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-2 sm:px-4 py-2 sm:py-2 md:py-3">
-          <div className="flex items-center gap-1 sm:gap-2 md:gap-4">
+        <div className="max-w-7xl mx-auto px-1 sm:px-4 py-1.5 sm:py-2 md:py-3">
+          <div className="flex items-center gap-0.5 sm:gap-2 md:gap-4">
             <CategoryDropdown />
             <FilterDropdown />
             
             {/* Botón toggle de envío rápido */}
             <button
               onClick={handleToggleFastShipping}
-              className={`flex items-center gap-1 md:gap-2 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 text-xs sm:text-xs md:text-sm font-medium rounded-md transition-all whitespace-nowrap ${
+              className={`flex items-center gap-0.5 md:gap-2 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 text-xs sm:text-xs md:text-sm font-medium rounded-md transition-all whitespace-nowrap ${
                 filters.fastShipping
                   ? 'bg-green-600 text-white hover:bg-green-700'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
