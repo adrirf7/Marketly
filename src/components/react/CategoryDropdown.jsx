@@ -150,14 +150,14 @@ export function CategoryDropdown() {
           {/* Menú principal */}
           <div className={`${
             isMobile 
-              ? 'fixed left-0 right-0 bottom-0 max-h-[80vh] rounded-t-2xl z-[50] overflow-hidden' 
+              ? 'fixed left-0 right-0 bottom-0 max-h-[90vh] rounded-t-2xl z-[50] overflow-hidden' 
               : 'absolute top-full left-0 mt-2 w-56 z-50 overflow-visible'
           } bg-white shadow-xl border border-gray-200`}>
             
             {/* Header móvil */}
             {isMobile && (
-              <div className="flex items-center justify-between p-4 border-b border-gray-200">
-                <h3 className="font-semibold text-gray-900">
+              <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200">
+                <h3 className="font-semibold text-gray-900 text-sm">
                   {selectedCategoryForMobile ? 'Selecciona una marca' : 'Selecciona una categoría'}
                 </h3>
                 {selectedCategoryForMobile && (
@@ -173,7 +173,7 @@ export function CategoryDropdown() {
               </div>
             )}
 
-            <div className={`${isMobile ? 'max-h-[calc(80vh-60px)] overflow-y-auto' : ''} py-2`}>
+            <div className={`${isMobile ? 'max-h-[calc(90vh-80px)] overflow-y-auto' : ''} py-2`}>
               {/* Vista de marcas en móvil */}
               {isMobile && selectedCategoryForMobile ? (
                 <>

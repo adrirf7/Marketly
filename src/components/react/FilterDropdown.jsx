@@ -125,14 +125,14 @@ export function FilterDropdown() {
           {/* Panel de filtros */}
           <div className={`${
             isMobile 
-              ? 'fixed left-0 right-0 bottom-0 max-h-[85vh] rounded-t-2xl z-[50]' 
+              ? 'fixed left-0 right-0 bottom-0 max-h-[90vh] rounded-t-2xl z-[50]' 
               : 'absolute top-full left-0 mt-2 w-80 z-50'
           } bg-white shadow-xl border border-gray-200 overflow-hidden`}>
             
             {/* Header móvil */}
             {isMobile && (
-              <div className="flex items-center justify-between p-4 border-b border-gray-200">
-                <h3 className="font-semibold text-gray-900">Filtros y Ordenación</h3>
+              <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200">
+                <h3 className="font-semibold text-gray-900 text-sm">Filtros y Ordenación</h3>
                 <button
                   onClick={() => setIsOpen(false)}
                   className="text-gray-500 hover:text-gray-700"
@@ -144,7 +144,7 @@ export function FilterDropdown() {
               </div>
             )}
 
-            <div className={`${isMobile ? 'max-h-[calc(85vh-120px)] overflow-y-auto' : ''} p-4 space-y-4`}>
+            <div className={`${isMobile ? 'max-h-[calc(90vh-130px)] overflow-y-auto' : ''} p-4 space-y-4`}>
               {/* Ordenar */}
               <div>
                 <label htmlFor={sortById} className="block text-sm font-medium text-gray-700 mb-2">
