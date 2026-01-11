@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
+import { getJwtSecret } from './env';
 
-const JWT_SECRET = import.meta.env.JWT_SECRET || process.env.JWT_SECRET || 'your-secret-key-change-in-production';
+const JWT_SECRET = getJwtSecret();
 const JWT_EXPIRE = '7d';
 
 /**

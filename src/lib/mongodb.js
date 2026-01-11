@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import { logger } from "./logger.ts";
+import { getMongoUri } from "./env.ts";
 
 let isConnected = false;
 
@@ -15,7 +16,7 @@ export const connectDB = async () => {
   }
 
   try {
-    const MONGODB_URI = import.meta.env.MONGODB_URI || process.env.MONGODB_URI;
+    const MONGODB_URI = getMongoUri();
 
     if (!MONGODB_URI) {
       throw new Error("Por favor define la variable de entorno MONGODB_URI");
