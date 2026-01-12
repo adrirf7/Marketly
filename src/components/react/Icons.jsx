@@ -122,7 +122,7 @@ export function MarketlyLogo() {
       xmlns="http://www.w3.org/2000/svg"
       width="240"
       height="48"
-      viewBox="0 0 200 40"
+      viewBox="0 0 120 40"
     >
       <g transform="translate(0,8)">
         <svg viewBox="0 -2 19.001 19.001" width="30" height="30">
