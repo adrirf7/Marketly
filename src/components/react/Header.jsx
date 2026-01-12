@@ -1,7 +1,7 @@
 import { useState, useId } from 'react';
 import { CategoryDropdown } from './CategoryDropdown.jsx';
 import { FilterDropdown } from './FilterDropdown.jsx';
-import { MarketlyLogo, CartIcon } from './Icons.jsx';
+import { MarketlyLogo, CartIcon, HamburgerIcon } from './Icons.jsx';
 import { useCart } from '../../hooks/useCart.js';
 import { useFilters } from '../../hooks/useFilters.js';
 
@@ -13,6 +13,7 @@ export function Header({ onCartClick, children }) {
   const { cart } = useCart();
   const { filters, setFilters } = useFilters();
   const [showSearchMobile, setShowSearchMobile] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
   const searchFilterId = useId();
 
   const itemCount = cart.reduce((acc, item) => acc + item.quantity, 0);
@@ -53,7 +54,17 @@ export function Header({ onCartClick, children }) {
               />
             </div>
             
-            <div className="flex items-center gap-0 sm:gap-2 md:gap-3 ml-auto flex-shrink-0">
+            {/* Botón hamburguesa para pantallas muy pequeñas (<390px) */}
+            <button
+              className="xs:hidden p-0 hover:bg-gray-100 rounded-full transition-colors flex-shrink-0 ml-auto"
+              onClick={() => setShowMobileMenu(!showMobileMenu)}
+              aria-label="Menú"
+            >
+              <HamburgerIcon />
+            </button>
+
+            {/* Iconos normales para pantallas >= 390px */}
+            <div className="hidden xs:flex items-center gap-0 sm:gap-2 md:gap-3 ml-auto flex-shrink-0">
               {/* Botón de búsqueda móvil */}
               <button
                 className="md:hidden p-0 sm:p-2.5 hover:bg-gray-100 rounded-full transition-colors flex-shrink-0"
@@ -82,9 +93,46 @@ export function Header({ onCartClick, children }) {
             </div>
           </div>
 
-          {/* Barra de búsqueda móvil expandible */}
+          {/* Menú móvil desplegable para pantallas < 390px */}
+          {showMobileMenu && (
+            <div className="xs:hidden mt-3 pb-2 border-t border-gray-200 pt-3 animate-fade-in">
+              <div className="flex flex-col gap-3">
+                {/* Búsqueda */}
+                <input
+                  type="text"
+                  placeholder="Buscar productos..."
+                  onChange={handleChangeSearch}
+                  value={filters.search}
+                  className="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all"
+                />
+                
+                {/* Botones de perfil y carrito */}
+                <div className="flex items-center gap-4 justify-center">
+                  {children}
+                  
+                  <button
+                    className="relative p-2.5 hover:bg-gray-100 rounded-full transition-colors"
+                    onClick={() => {
+                      onCartClick();
+                      setShowMobileMenu(false);
+                    }}
+                    aria-label="Abrir carrito"
+                  >
+                    <CartIcon />
+                    {itemCount > 0 && (
+                      <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center shadow-lg">
+                        {itemCount}
+                      </span>
+                    )}
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Barra de búsqueda móvil expandible (para pantallas >= 390px) */}
           {showSearchMobile && (
-            <div className="md:hidden mt-3 animate-fade-in">
+            <div className="hidden xs:block md:hidden mt-3 animate-fade-in">
               <input
                 type="text"
                 placeholder="Buscar productos..."
@@ -100,21 +148,21 @@ export function Header({ onCartClick, children }) {
       
       {/* Nivel 2: Categorías, Filtros, Envío rápido */}
       <div className="border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-1 sm:px-4 py-1.5 sm:py-2 md:py-3">
-          <div className="flex items-center gap-0.5 sm:gap-2 md:gap-4">
+        <div className="max-w-7xl mx-auto px-4 py-3">
+          <div className="flex items-center gap-2 md:gap-4">
             <CategoryDropdown />
             <FilterDropdown />
             
             {/* Botón toggle de envío rápido */}
             <button
               onClick={handleToggleFastShipping}
-              className={`flex items-center gap-0.5 md:gap-2 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 text-xs sm:text-xs md:text-sm font-medium rounded-md transition-all whitespace-nowrap ${
+              className={`flex items-center gap-2 px-3 md:px-4 py-2 text-sm font-medium rounded-md transition-all whitespace-nowrap ${
                 filters.fastShipping
                   ? 'bg-green-600 text-white hover:bg-green-700'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
-              <svg className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
                 <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1v-5a1 1 0 00-.293-.707l-2-2A1 1 0 0015 7h-1z"/>
               </svg>
