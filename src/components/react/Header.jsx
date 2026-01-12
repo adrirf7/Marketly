@@ -37,7 +37,7 @@ export function Header({ onCartClick, children }) {
       {/* Nivel 1: Logo, Búsqueda, Usuario, Carrito */}
       <div className="border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-1 sm:px-4 py-1.5 sm:py-3">
-          <div className="flex items-center gap-0 sm:gap-2 md:gap-4">
+          <div className="flex items-center gap-1 sm:gap-2 md:gap-4">
             <a href="/" className="flex-shrink-0 scale-75 sm:scale-100 origin-left">
               <MarketlyLogo />
             </a>
@@ -54,9 +54,9 @@ export function Header({ onCartClick, children }) {
               />
             </div>
             
-            {/* Botón hamburguesa para pantallas muy pequeñas (<390px) */}
+            {/* Botón hamburguesa SOLO para pantallas < 390px */}
             <button
-              className="xs:hidden p-0 hover:bg-gray-100 rounded-full transition-colors flex-shrink-0 ml-auto"
+              className="min-[390px]:hidden p-1 hover:bg-gray-100 rounded-full transition-colors flex-shrink-0 ml-auto"
               onClick={() => setShowMobileMenu(!showMobileMenu)}
               aria-label="Menú"
             >
@@ -64,10 +64,10 @@ export function Header({ onCartClick, children }) {
             </button>
 
             {/* Iconos normales para pantallas >= 390px */}
-            <div className="hidden xs:flex items-center gap-0 sm:gap-2 md:gap-3 ml-auto flex-shrink-0">
+            <div className="hidden min-[390px]:flex items-center gap-1 sm:gap-2 md:gap-3 ml-auto flex-shrink-0">
               {/* Botón de búsqueda móvil */}
               <button
-                className="md:hidden p-0 sm:p-2.5 hover:bg-gray-100 rounded-full transition-colors flex-shrink-0"
+                className="md:hidden p-2 sm:p-2.5 hover:bg-gray-100 rounded-full transition-colors flex-shrink-0"
                 onClick={() => setShowSearchMobile(!showSearchMobile)}
                 aria-label="Buscar"
               >
@@ -79,7 +79,7 @@ export function Header({ onCartClick, children }) {
               {children}
               
               <button
-                className="relative p-0 sm:p-2.5 hover:bg-gray-100 rounded-full transition-colors flex-shrink-0"
+                className="relative p-2 sm:p-2.5 hover:bg-gray-100 rounded-full transition-colors flex-shrink-0"
                 onClick={onCartClick}
                 aria-label="Abrir carrito"
               >
@@ -93,9 +93,9 @@ export function Header({ onCartClick, children }) {
             </div>
           </div>
 
-          {/* Menú móvil desplegable para pantallas < 390px */}
+          {/* Menú móvil desplegable SOLO para pantallas < 390px */}
           {showMobileMenu && (
-            <div className="xs:hidden mt-3 pb-2 border-t border-gray-200 pt-3 animate-fade-in">
+            <div className="min-[390px]:hidden mt-3 pb-2 border-t border-gray-200 pt-3 animate-fade-in">
               <div className="flex flex-col gap-3">
                 {/* Búsqueda */}
                 <input
@@ -130,9 +130,9 @@ export function Header({ onCartClick, children }) {
             </div>
           )}
 
-          {/* Barra de búsqueda móvil expandible (para pantallas >= 390px) */}
+          {/* Barra de búsqueda móvil expandible (para pantallas >= 390px y < 768px) */}
           {showSearchMobile && (
-            <div className="hidden xs:block md:hidden mt-3 animate-fade-in">
+            <div className="md:hidden mt-3 animate-fade-in">
               <input
                 type="text"
                 placeholder="Buscar productos..."
