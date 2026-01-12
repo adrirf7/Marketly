@@ -202,7 +202,6 @@ export function CategoryDropdown() {
                     key={category.value}
                     className="relative"
                     onMouseEnter={() => !isMobile && setHoveredCategory(category.value)}
-                    onMouseLeave={() => !isMobile && setHoveredCategory(null)}
                   >
                     <button
                       onClick={() => isMobile ? handleCategoryClickMobile(category) : handleChangeCategory(category.value, null)}
@@ -222,6 +221,7 @@ export function CategoryDropdown() {
                     {!isMobile && hoveredCategory === category.value && category.brands.length > 0 && (
                       <div 
                         className="absolute left-full top-0 ml-1 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[60]"
+                        onMouseEnter={() => !isMobile && setHoveredCategory(category.value)}
                       >
                         <div className="px-3 py-2 text-xs font-semibold text-gray-500 uppercase border-b border-gray-200">
                           Marcas
