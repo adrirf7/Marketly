@@ -36,7 +36,7 @@ export function Header({ onCartClick, children }) {
       {/* Nivel 1: Logo, Búsqueda, Usuario, Carrito */}
       <div className="border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-1 sm:px-4 py-1.5 sm:py-3">
-          <div className="flex items-center gap-2 sm:gap-2 md:gap-4">
+          <div className="flex items-center gap-0 sm:gap-2 md:gap-4">
             <a href="/" className="flex-shrink-0 scale-75 sm:scale-100 origin-left">
               <MarketlyLogo />
             </a>
@@ -53,10 +53,10 @@ export function Header({ onCartClick, children }) {
               />
             </div>
             
-            <div className="flex items-center gap-2 sm:gap-2 md:gap-3 flex-shrink-0">
+            <div className="flex items-center gap-0 sm:gap-2 md:gap-3 ml-auto flex-shrink-0">
               {/* Botón de búsqueda móvil */}
               <button
-                className="md:hidden p-2 sm:p-2.5 hover:bg-gray-100 rounded-full transition-colors flex-shrink-0"
+                className="md:hidden p-0 sm:p-2.5 hover:bg-gray-100 rounded-full transition-colors flex-shrink-0"
                 onClick={() => setShowSearchMobile(!showSearchMobile)}
                 aria-label="Buscar"
               >
@@ -68,7 +68,7 @@ export function Header({ onCartClick, children }) {
               {children}
               
               <button
-                className="relative p-2 sm:p-2.5 hover:bg-gray-100 rounded-full transition-colors flex-shrink-0"
+                className="relative p-0 sm:p-2.5 hover:bg-gray-100 rounded-full transition-colors flex-shrink-0"
                 onClick={onCartClick}
                 aria-label="Abrir carrito"
               >
